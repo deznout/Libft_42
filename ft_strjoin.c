@@ -2,8 +2,8 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		k;
+	size_t	i;
+	size_t	k;
 	char	*res;
 	size_t	lenS1;
 	size_t	lenS2;
@@ -14,15 +14,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	lenS1 = ft_strlen(s1);
 	lenS2 = ft_strlen(s2);
-	res = (char *)malloc(sizeof(char) * ((int)(lenS1 + lenS2)));
+	res = (char *)malloc(sizeof(char) * (lenS1 + lenS2 + 1));
 	if (!res)
 		return (NULL);
-	while (i < (int)lenS1)
+	while (i < lenS1)
 	{
 		res[i] = s1[i];
 		i++;
 	}
-	while (k < (int)lenS2)
+	while (k < lenS2)
 		res[i++] = s2[k++];
 	res[i] = '\0';
 	return (res);
